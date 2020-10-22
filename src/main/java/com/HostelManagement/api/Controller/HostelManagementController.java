@@ -26,6 +26,6 @@ public class HostelManagementController {
 	@GetMapping("/gettestdata")
 	public String getTestData() 
 	{
-		return "====================  Hi This build and deploy by Jenkin server ======================== ";
+		return "====================  Hi This build and deploy by Jenkin server Yaaaa hoooooo    ======================== ";
 	}
 }
