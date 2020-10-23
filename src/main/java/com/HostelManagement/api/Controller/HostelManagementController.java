@@ -3,6 +3,7 @@ package com.HostelManagement.api.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,9 +24,9 @@ public class HostelManagementController {
 	{
 		return ResponseEntity.ok(hostelservice.SaveUser(hostelmodel));
 	}
-	@GetMapping("/gettestdata")
-	public String getTestData() 
+	@GetMapping("/gettestdata/{name}")
+	public String getTestData(@PathVariable("name") String name ) 
 	{
-		return "====================  Hi This build and deploy by Jenkin server ======================== ";
+		return "====================   Hi  "+ name +"  this build and deploy automatically done by Jenkin server ======================== ";
 	}
 }
