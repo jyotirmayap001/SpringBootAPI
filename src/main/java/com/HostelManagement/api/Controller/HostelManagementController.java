@@ -27,6 +27,6 @@ public class HostelManagementController {
 	@GetMapping("/gettestdata/{name}")
 	public String getTestData(@PathVariable("name") String name ) 
 	{
-		return "====================   Hi  "+ name +"  this build and deploy automatically done by Jenkin server Ha Ha Ha ======================== ";
+		return "====================   Hi  "+ name +"  this build and deploy automatically done by Jenkin server and it first time i am using Jenlins tool..! ======================== ";
 	}
 }
