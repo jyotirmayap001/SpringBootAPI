@@ -29,4 +29,10 @@ public class HostelManagementController {
 	{
 		return "====================   Hi  "+ name +"  this build and deploy automatically done by Jenkin server and it first time i am using Jenlins tool..! ======================== ";
 	}
+	@GetMapping("/getdata/{name}")
+	public String getUSers(@PathVariable("name") String name ) 
+	{
+		
+		return "====================   Hi  "+ name +"  this is my second time deployed by Jenkins ======================== ";
+	}
 }
