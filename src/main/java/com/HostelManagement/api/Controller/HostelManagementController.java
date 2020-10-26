@@ -24,15 +24,10 @@ public class HostelManagementController {
 	{
 		return ResponseEntity.ok(hostelservice.SaveUser(hostelmodel));
 	}
-	@GetMapping("/gettestdata/{firstname}")
+	@GetMapping("/getfirstname/{firstname}")
 	public String getTestData(@PathVariable("firstname") String firstname ) 
 	{
 		return "====================   Hi  "+ firstname +"  this build and deploy automatically done by Jenkin server and it first time i am using Jenkins tool..! ======================== ";
 	}
-	@GetMapping("/getdata/{name}")
-	public String getUSers(@PathVariable("name") String name ) 
-	{
-		
-		return "====================   Hi  "+ name +"  this is my second time deployed by Jenkins ======================== ";
-	}
+	
 }
