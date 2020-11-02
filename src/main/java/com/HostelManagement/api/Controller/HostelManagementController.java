@@ -24,7 +24,7 @@ public class HostelManagementController {
 	{
 		return ResponseEntity.ok(hostelservice.SaveUser(hostelmodel));
 	}
-	@GetMapping("/getname/{name}")
+	@GetMapping("/getdata/{name}")
 	public String getTestData(@PathVariable("name") String name) 
 	{
 		return "====================   Hi  "+ name+"  this build and deploy automatically done by Jenkin server and it first time i am using Jenkins tool..! ======================== ";
