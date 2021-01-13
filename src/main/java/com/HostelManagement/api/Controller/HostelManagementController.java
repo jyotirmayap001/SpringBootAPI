@@ -27,7 +27,7 @@ public class HostelManagementController {
 	@GetMapping("/getname/{name}")
 	public String getTestData(@PathVariable("name") String name) 
 	{
-		return "====================   Hi  "+ name+"  this build and deploy automatically done by Jenkin server and it first time i am using Jenkins tool..! ======================== ";
+		return "====================   Hi  "+ name+"  this is your first Jenkin CI/CD tool   ";
 	}
 	
 	@GetMapping("/printname/{name}")
