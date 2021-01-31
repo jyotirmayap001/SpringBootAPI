@@ -10,7 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.HostelManagement.api.Model.HostelModel;
+import com.HostelManagement.api.Model.User;
+import com.HostelManagement.api.Model.UserResponse;
 import com.HostelManagement.api.Service.HostelManagementService;
+import com.HostelManagement.api.Service.UserRegistration;
 
 @RestController
 @RequestMapping("/api")
@@ -19,15 +22,18 @@ public class HostelManagementController {
 	@Autowired
 	private HostelManagementService hostelservice;
 	
+	@Autowired
+	private UserRegistration userService;
+	
 	@PostMapping("/adduser")
-	public ResponseEntity<HostelModel> registrationUser(@RequestBody HostelModel hostelmodel) 
+	public ResponseEntity<UserResponse> registrationUser(@RequestBody User hostelmodel) 
 	{
-		return ResponseEntity.ok(hostelservice.SaveUser(hostelmodel));
+		return ResponseEntity.ok(userService.saveUser(hostelmodel));
 	}
 	@GetMapping("/getname/{name}")
 	public String getTestData(@PathVariable("name") String name) 
 	{
-		return "====================   Hi  "+ name+"  this is your first Jenkin CI/CD tool   ";
+		return "====================   Hi  "+ name+"  you are using Jenkin CI/CD tool   ===========================";
 	}
 	
 	@GetMapping("/printname/{name}")
