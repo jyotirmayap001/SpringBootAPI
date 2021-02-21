@@ -1,40 +1,57 @@
-package com.HostelManagement.api.Model;
+package com.HostelManagement.api.model;
 
 import java.util.Date;
 
 public class JwtResponse {
 
-	String Token;
-	Date ExpiryDate;
+	String message;
+	Integer status;
+	JwtData data;
 	
-	public JwtResponse() {
-		
+	
+	public JwtResponse() {}
+
+
+	public JwtResponse(String message, Integer status, JwtData data) {
+		super();
+		this.message = message;
+		this.status = status;
+		this.data = data;
 	}
+
+
+	public String getMessage() {
+		return message;
+	}
+
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+
+	public Integer getStatus() {
+		return status;
+	}
+
+
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
+
+
+	public JwtData getData() {
+		return data;
+	}
+
+
+	public void setData(JwtData data) {
+		this.data = data;
+	}
+
 
 	
-	public JwtResponse(String token, Date expiryDate) {
-		
-		Token = token;
-		ExpiryDate = expiryDate;
-	}
-
-
-	public String getToken() {
-		return Token;
-	}
-
-	public void setToken(String token) {
-		Token = token;
-	}
-
-	public Date getExpiryDate() {
-		return ExpiryDate;
-	}
-
-	public void setExpiryDate(Date expiryDate) {
-		ExpiryDate = expiryDate;
-	}
-	
+			
 	
 	 
 }

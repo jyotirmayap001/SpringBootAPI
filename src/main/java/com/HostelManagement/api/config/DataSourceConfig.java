@@ -10,11 +10,10 @@ import org.springframework.context.annotation.Configuration;
 public class DataSourceConfig {
     
     @Bean
-    public DataSource getDataSource() 
-    {
+    public DataSource getDataSource() {
         DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();
         dataSourceBuilder.driverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-        dataSourceBuilder.url("jdbc:sqlserver://localhost\\\\SQLEXPRESS:1433;databaseName=HostelManagement");
+        dataSourceBuilder.url("jdbc:sqlserver://localhost\\\\\\\\SQLEXPRESS:1433;databaseName=HostelManagement");
         dataSourceBuilder.username("sa");
         dataSourceBuilder.password("admin@123");
         return dataSourceBuilder.build();

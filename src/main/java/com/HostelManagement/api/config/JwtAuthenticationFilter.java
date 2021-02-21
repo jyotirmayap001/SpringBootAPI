@@ -17,16 +17,21 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.HostelManagement.api.helper.JwtUtil;
-import com.HostelManagement.api.Service.CustomUserDetailService;
+import com.HostelManagement.api.service.CustomUserDetailsService;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+
 
 @Component
 public class JwtAuthenticationFilter extends OncePerRequestFilter{
 
 	@Autowired
-	private CustomUserDetailService userService;
+	private CustomUserDetailsService userService;
 	
 	@Autowired
 	private JwtUtil util;
+	
+	
 	
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
@@ -35,6 +40,11 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter{
 		
 	
 		String requestTokenHeader=request.getHeader("Authorization");
+		
+		System.out.println(request.getLocalAddr());
+		System.out.println(request.getServerName());
+		System.out.println(request.getRemoteAddr());
+		System.out.println(request.getRemoteHost());
 		
 		String UserName=null;
 		
@@ -52,24 +62,40 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter{
 			}
 			catch(Exception ex) {ex.printStackTrace();}
 			
-			UserDetails userDetails = this.userService.loadUserByUsername(UserName);
+			//UserDetails userDetails = this.userService.loadUserByUsername(UserName);
 			
-			if(UserName!=null && SecurityContextHolder.getContext().getAuthentication()==null )
-			{
-				
-					UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = 
-							new UsernamePasswordAuthenticationToken(userDetails,null,userDetails.getAuthorities());
-					
-					usernamePasswordAuthenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-					
-					SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
-					
-			}
-			else
-			{
-				
-				System.out.println("Token is not valid... ");
-			}
+			
+			/*
+			 * Employee employee = new Employee(1, "Karan", "IT", 5000); String
+			 * employeeJsonString = this.gson.toJson(employee);
+			 * 
+			 * PrintWriter out = response.getWriter();
+			 * response.setContentType("application/json");
+			 * response.setCharacterEncoding("UTF-8"); out.print(employeeJsonString);
+			 * out.flush();
+			 */ 
+			
+			
+			
+			
+			/*
+			 * if(UserName!=null &&
+			 * SecurityContextHolder.getContext().getAuthentication()==null ) {
+			 * 
+			 * UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new
+			 * UsernamePasswordAuthenticationToken(userDetails,null,userDetails.
+			 * getAuthorities());
+			 * 
+			 * usernamePasswordAuthenticationToken.setDetails(new
+			 * WebAuthenticationDetailsSource().buildDetails(request));
+			 * 
+			 * SecurityContextHolder.getContext().setAuthentication(
+			 * usernamePasswordAuthenticationToken);
+			 * 
+			 * } else {
+			 * 
+			 * System.out.println("Token is not valid... "); }
+			 */
 			
 			
 		}	

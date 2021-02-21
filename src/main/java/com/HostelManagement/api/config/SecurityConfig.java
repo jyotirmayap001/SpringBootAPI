@@ -13,13 +13,14 @@ import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import com.HostelManagement.api.Service.CustomUserDetailService;
+import com.HostelManagement.api.service.CustomUserDetailsService;
+
 
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
 	@Autowired
-	private CustomUserDetailService userService;
+	private CustomUserDetailsService userService;
 	
 	@Autowired
 	private JwtAuthenticationFilter jwtFilter;
@@ -48,7 +49,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		
-		auth.userDetailsService(userService);
+		//auth.userDetailsService(userService);
 	}
 
 	@Bean

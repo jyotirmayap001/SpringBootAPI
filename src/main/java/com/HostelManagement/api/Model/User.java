@@ -1,68 +1,162 @@
-package com.HostelManagement.api.Model;
+package com.HostelManagement.api.model;
 
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+@Entity
+@Table(name="mstuser")
 public class User {
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="userid")
+	public Integer userid;
 	
-	public Integer UserId;
-	public String FirstName;
-	public String LastName;
-	public String Email;
-	public String UserPassWord;
+	@Column(name="firstname")
+	public String firstname;
 	
-	public User() {}
+	@Column(name="lastname")
+	public String lastname;
+	
+	@Column(name="email")
+	public String email;
+	
+	@Column(name="userpassword")
+	public String userpassword;
+	
+	@Column(name="isdeleted")
+	public Integer isdeleted;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name="createddatetime")
+	public Date createddatetime;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name="deleteddatetime")
+	public Date deleteddatetime;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name="updateddatetime")
+	public Date updateddatetime;
+
 	
 	
-	public User(String firstName, String lastName, String email, String userPassWord,Integer userid) {
+	public User() {
+		
+	}
+	
+	
+	
+	
+	public User(Integer userid, String firstname, String lastname, String email, String userpassword,
+			Integer isdeleted, Date createddatetime, Date deleteddatetime, Date updateddatetime) {
 		super();
-		FirstName = firstName;
-		LastName = lastName;
-		Email = email;
-		UserPassWord = userPassWord;
-		UserId = userid;
+		this.userid = userid;
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.email = email;
+		this.userpassword = userpassword;
+		this.isdeleted = isdeleted;
+		this.createddatetime = createddatetime;
+		this.deleteddatetime = deleteddatetime;
+		this.updateddatetime = updateddatetime;
 	}
+
 	
 	
-	public Integer getUserId() {
-		return UserId;
+	public Integer getUserid() {
+		return userid;
 	}
 
-
-	public void setUserId(Integer userId) {
-		UserId = userId;
+	public void setUserid(Integer userid) {
+		this.userid = userid;
 	}
 
+	public String getFirstname() {
+		return firstname;
+	}
 
-	public String getFirstName() {
-		return FirstName;
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
 	}
-	public void setFirstName(String firstName) {
-		FirstName = firstName;
+
+	public String getLastname() {
+		return lastname;
 	}
-	public String getLastName() {
-		return LastName;
+
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
 	}
-	public void setLastName(String lastName) {
-		LastName = lastName;
-	}
+
 	public String getEmail() {
-		return Email;
+		return email;
 	}
+
 	public void setEmail(String email) {
-		Email = email;
+		this.email = email;
 	}
-	public String getUserPassWord() {
-		return UserPassWord;
+
+	public String getUserpassword() {
+		return userpassword;
 	}
-	public void setUserPassWord(String userPassWord) {
-		UserPassWord = userPassWord;
+
+	public void setUserpassword(String userpassword) {
+		this.userpassword = userpassword;
 	}
+
+	public Integer getIsdeleted() {
+		return isdeleted;
+	}
+
+	public void setIsdeleted(Integer isdeleted) {
+		this.isdeleted = isdeleted;
+	}
+
+	public Date getCreateddatetime() {
+		return createddatetime;
+	}
+
+	public void setCreateddatetime(Date createddatetime) {
+		this.createddatetime = createddatetime;
+	}
+
+	public Date getDeleteddatetime() {
+		return deleteddatetime;
+	}
+
+	public void setDeleteddatetime(Date deleteddatetime) {
+		this.deleteddatetime = deleteddatetime;
+	}
+
+	public Date getUpdateddatetime() {
+		return updateddatetime;
+	}
+
+	public void setUpdateddatetime(Date updateddatetime) {
+		this.updateddatetime = updateddatetime;
+	}
+
+
 
 
 	@Override
 	public String toString() {
-		return "User [FirstName=" + FirstName + ", LastName=" + LastName + ", Email=" + Email + ", UserPassWord="
-				+ UserPassWord + "]";
+		return "User [userid=" + userid + ", firstname=" + firstname + ", lastname=" + lastname + ", email=" + email
+				+ ", userpassword=" + userpassword + ", isdeleted=" + isdeleted + ", createddatetime=" + createddatetime
+				+ ", deleteddatetime=" + deleteddatetime + ", updateddatetime=" + updateddatetime + "]";
 	}
 	
 	
-
+	
+	
+	
+	
 }
