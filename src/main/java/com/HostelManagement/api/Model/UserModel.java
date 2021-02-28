@@ -10,7 +10,6 @@ public class UserModel {
 		
 	}
 
-	
 	public UserModel(String email, String userpassword) {
 		super();
 		this.email = email;

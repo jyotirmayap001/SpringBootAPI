@@ -51,9 +51,6 @@ public class JwtController {
 	public ResponseEntity<JwtResponse> generateToken(@RequestBody UserModel user) throws Exception 
 	{
 		
-		System.out.println(user);
-		
-		
 		UserResponse userData = this.userService.loginUser(user);
 		
 		if (userData==null) {
@@ -64,9 +61,6 @@ public class JwtController {
 		String token=this.util.generateToken(userData);
 		
 		Date extractExpiration = this.util.extractExpiration(token);
-		
-		System.out.println(token);
-		System.out.println(extractExpiration);
 		
 		JwtData jwtData=new JwtData();
 		

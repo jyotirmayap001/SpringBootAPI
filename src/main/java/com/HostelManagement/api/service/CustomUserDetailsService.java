@@ -51,8 +51,6 @@ public class CustomUserDetailsService  {
 				 Map resultMap=(Map)arrayList.get(0);
 				 userRes.setUserId((Integer)resultMap.get("UserId"));
 				 userRes.setEmail((String)resultMap.get("Email"));
-				 
-				 
 			 }
 			 else 
 			 {
