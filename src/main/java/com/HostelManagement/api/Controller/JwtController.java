@@ -35,6 +35,7 @@ import io.jsonwebtoken.Header;
 
 @RestController
 @CrossOrigin
+@RequestMapping("/login")
 public class JwtController {
 
 	/*
