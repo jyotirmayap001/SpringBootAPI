@@ -56,7 +56,7 @@ public class JwtController {
 		
 		if (userData==null) {
 			
-			throw new UserNotFoundException();
+			throw new UserNotFoundException("Bad Credentials");
 		}
 		
 		String token=this.util.generateToken(userData);
